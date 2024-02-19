@@ -130,8 +130,12 @@ $(document).ready(function () {
 
     function updateCart(cartID, quantity, change, url) {
         $.ajax({
-            type: "POST", url: url, data: {
-                cart_id: cartID, quantity: quantity, csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+            type: "POST",
+            url: url,
+            data: {
+                cart_id: cartID,
+                quantity: quantity,
+                csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
 
             success: function (data) {
@@ -153,7 +157,8 @@ $(document).ready(function () {
                 var cartItemsContainer = $("#cart-items-container");
                 cartItemsContainer.html(data.cart_items_html);
 
-            }, error: function (data) {
+            },
+            error: function (data) {
                 console.log("Ошибка при добавлении товара в корзину");
             },
         });

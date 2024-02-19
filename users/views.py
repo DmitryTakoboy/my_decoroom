@@ -23,7 +23,7 @@ def login(request):
                 messages.success(request, f"{username}, Вы вошли в аккаунт")
 
                 if session_key:
-                    Cart.object.filter(session_key=session_key).update(user=user)
+                    Cart.objects.filter(session_key=session_key).update(user=user)
 
                 return HttpResponseRedirect(reverse('main:index'))
     else:
@@ -48,7 +48,7 @@ def registration(request):
             auth.login(request, user)
 
             if session_key:
-                Cart.object.filter(session_key=session_key).update(user=user)
+                Cart.objects.filter(session_key=session_key).update(user=user)
                 messages.success(request, f"{user.username}, Вы успешно зарегистрированы и вошли в аккаунт")
                 return HttpResponseRedirect(reverse('main:index'))
     else:
