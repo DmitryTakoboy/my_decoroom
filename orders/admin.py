@@ -35,6 +35,8 @@ class OrderTabularAdmin(admin.TabularInline):
     )
     readonly_fields = ("created_timestamp",)
     extra = 0
+
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
