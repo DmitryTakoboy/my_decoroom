@@ -36,3 +36,19 @@ body {
   border-radius: 15px;
   font-size: 0.7rem;
 }
+
+.blue-text {
+    color: #007bff;
+}
+
+.yellow-text {
+    color: #ffc107
+;
+}
+
+
+.text-with-individual-stroke {
+    text-shadow:
+
+        -2px 2px 0 #000000;
+}

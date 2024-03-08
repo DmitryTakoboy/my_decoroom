@@ -32,7 +32,7 @@ def login(request):
         form = UserLoginForm
 
     context = {
-        'title': 'Home - autorization',
+        'title': 'DECOROOM - autorization',
         'form': form
     }
     return render(request, 'users/login.html', context)
@@ -56,7 +56,7 @@ def registration(request):
     else:
         form = UserRegistrationForm()
     context = {
-        'title': 'Home - registration',
+        'title': 'DECOROOM - registration',
         'form': form
     }
     return render(request, 'users/registration.html', context)
@@ -84,7 +84,7 @@ def profile(request):
         .order_by('-id')
     )
     context = {
-        'title': 'Home - profile',
+        'title': 'DECOROOM - profile',
         'form': form,
         'orders': orders
     }

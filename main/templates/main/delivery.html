@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+{% endblock %}
+
+{% block modal_cart %}
+{% include  "includes/cart_button.html"%}
+{% endblock %}
+
+{% block content %}
+    <div class="mt-5 p-3 pt-4 bg-white custom-shadow rounded">
+        <h2 class="m-3"><strong>{{ content }}</strong></h2>
+        <h3 class="m-3"><strong>Доставка: </strong></h3>
+        <p class="m-3"> Заказать мебель в нашем интернет магазине можно
+            несколькими способами, включая:</p>
+        <ul class="m-3" >
+                <li>Курьерскую службу</li>
+                <li>Почтовую доставку</li>
+                <li>Самовывоз из нашего магазина</li>
+            </ul>
+
+             <p class="m-3 ">
+                Стоимость и сроки доставки зависят от выбранных вами опций и вашего местоположения.
+            </p>
+        <p class="m-3">
+            Дополнительную информацию о вариантах доставки вы можете получить, связавшись с нашим отделом обслуживания
+            по телефону <span class="blue-text">{{ tel_number}}</span> или по электронной почте <span class="blue-text">{{ email}}</span> .
+        </p>
+        <h3 class="m-3"><strong>Оплата: </strong></h3>
+            <p class="m-3 ">
+            Мы принимаем различные методы оплаты, включая:
+        </p>
+        <ul class="m-3">
+            <li>Оплату наличными при получении</li>
+            <li>Онлайн-платежи</li>
+            <li>Банковские переводы</li>
+        </ul>
+        <p class="m-3">
+            При оплате картой, удостоверьтесь, что ваша информация защищена и безопасна.
+        </p>
+        <p class="m-3 pb-3">
+            Дополнительную информацию о вариантах оплаты вы можете получить, связавшись с нашим отделом
+            обслуживания по телефону <span class="blue-text">{{ tel_number}}</span> или по электронной почте <span class="blue-text">{{ email}}</span>.
+        </p>
+
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; DMITRY TAKOVOI 2023</p>
+        </div>
+    </footer>
+{% endblock %}
