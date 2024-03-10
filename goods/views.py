@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator
+from django.db.models import ExpressionWrapper, DecimalField, F
 from django.shortcuts import render, get_list_or_404
 
 from goods.models import Products
@@ -22,7 +23,16 @@ def catalog(request, category_slug=None):
         goods = goods.filter(discount__gt=0)
 
     if order_by and order_by != "default":
-        goods = goods.order_by(order_by)
+        if order_by == "price":
+            goods = goods.annotate(discounted_price=ExpressionWrapper(
+                F('price') - F('price') * F('discount') / 100.0,
+                output_field=DecimalField()  # Указываем DecimalField
+            )).order_by('discounted_price')
+        elif order_by == "-price":
+            goods = goods.annotate(discounted_price=ExpressionWrapper(
+                F('price') - F('price') * F('discount') / 100.0,
+                output_field=DecimalField()  # Указываем DecimalField
+            )).order_by('-discounted_price')
 
     paginator = Paginator(goods, 3)
     current_page = paginator.page(page)
